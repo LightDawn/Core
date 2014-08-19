@@ -1,0 +1,21 @@
+﻿using Kendo.Mvc;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using Core.Mvc.Helpers.RefahKendoGrid.Infrastructure;
+using Core.Mvc.Helpers.CustomWrapper.Infrastructure;
+using Core.Mvc.Helpers.CustomWrapper.DataSource;
+using Kendo.Mvc.UI;
+
+namespace Core.Mvc.Helpers.RefahKendoGrid.Settings.DataModel
+{
+    [Serializable()]
+    public class TransportRP : TransportBase
+    {
+        
+
+      
+    }
+}

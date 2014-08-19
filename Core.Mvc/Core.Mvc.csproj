@@ -1,0 +1,309 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{A1D94026-1A00-45F5-9E6C-A4FFE687F3D3}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Core.Mvc</RootNamespace>
+    <AssemblyName>Core.Mvc</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\CoreRp.Main.Deployment\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\..\CoreRp.Main.Deployment\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="Attribute\ExceptionHandler.cs" />
+    <Compile Include="Attribute\Filter\ModelFieldTypeInfo.cs" />
+    <Compile Include="Attribute\Filter\SearchRelatedEnumInfo.cs" />
+    <Compile Include="Attribute\Filter\SearchRelatedType.cs" />
+    <Compile Include="Attribute\Filter\SearchRelatedTypes.cs" />
+    <Compile Include="Attribute\Filter\SearchRelatedUponLoadByLookup.cs" />
+    <Compile Include="Attribute\RegisterAttribute.cs" />
+    <Compile Include="Attribute\Validation\RangeRp.cs" />
+    <Compile Include="Attribute\Validation\RegularExpressionRp.cs" />
+    <Compile Include="Attribute\Validation\RequiredRp.cs" />
+    <Compile Include="Attribute\Validation\StringLengthRp.cs" />
+    <Compile Include="Controller\ApiControllerBase.cs" />
+    <Compile Include="Controller\ControllerBaseRP.cs" />
+    <Compile Include="Controller\CrudApiControllerBase.cs" />
+    <Compile Include="Extensions\CloneHelper.cs" />
+    <Compile Include="Extensions\FilterRelated\ExpressionBuilderBase.cs" />
+    <Compile Include="Extensions\FilterRelated\ExpressionBuilderOptions.cs" />
+    <Compile Include="Extensions\FilterRelated\ExpressionConstants.cs" />
+    <Compile Include="Extensions\FilterRelated\FilterDescriptorBase.cs" />
+    <Compile Include="Extensions\FilterRelated\FilterDescriptorCollectionExpressionBuilder.cs" />
+    <Compile Include="Extensions\FilterRelated\FilterExpressionBuilder.cs" />
+    <Compile Include="Extensions\FilterRelated\QueryProviderExtensions.cs" />
+    <Compile Include="Attribute\Filter\SearchExcludingFields.cs" />
+    <Compile Include="Extensions\ModelStateExtensions.cs" />
+    <Compile Include="Extensions\StringExt.cs" />
+    <Compile Include="Extensions\TypeExtension.cs" />
+    <Compile Include="Extensions\Validations.cs" />
+    <Compile Include="Extensions\ViewModelReflectionExtensions.cs" />
+    <Compile Include="FileService.cs" />
+    <Compile Include="Helpers\BundlesHelper.cs" />
+    <Compile Include="Helpers\ButtonHelper.cs" />
+    <Compile Include="Helpers\Captcha.cs" />
+    <Compile Include="Helpers\CustomWrapper\DataModel\SchemaGrid.cs" />
+    <Compile Include="Helpers\CustomWrapper\DataSource\AccessOperation.cs" />
+    <Compile Include="Helpers\CustomWrapper\DataSource\DataKeyRP.cs" />
+    <Compile Include="Helpers\CustomWrapper\DataModel\CrudInfo.cs" />
+    <Compile Include="Helpers\CustomWrapper\DataModel\CrudInfoEdit.cs" />
+    <Compile Include="Helpers\CustomWrapper\DataModel\CrudRP.cs" />
+    <Compile Include="Helpers\CustomWrapper\DataModel\DataSourceInfo.cs" />
+    <Compile Include="Helpers\CustomWrapper\DataModel\DataSourceResultRP.cs" />
+    <Compile Include="Helpers\CustomWrapper\DataModel\DataSourceRP.cs" />
+    <Compile Include="Helpers\CustomWrapper\DataModel\ModelRP.cs" />
+    <Compile Include="Helpers\CustomWrapper\DataModel\PreDefinedEvents.cs" />
+    <Compile Include="Helpers\CustomWrapper\DataModel\ServerRelInfo.cs" />
+    <Compile Include="Helpers\CustomWrapper\DataModel\TransportRP.cs" />
+    <Compile Include="Helpers\CustomWrapper\DataSource\DataSourceBase.cs" />
+    <Compile Include="Helpers\CustomWrapper\DataSource\DataSourceEvent.cs" />
+    <Compile Include="Helpers\CustomWrapper\DataSource\DataSourceType.cs" />
+    <Compile Include="Helpers\CustomWrapper\DataSource\Transport\OperationBase.cs" />
+    <Compile Include="Helpers\CustomWrapper\DataSource\Transport\TransportBase.cs" />
+    <Compile Include="Helpers\CustomWrapper\Infrastructure\CustomJavaScriptSerializer.cs" />
+    <Compile Include="Helpers\CustomWrapper\Infrastructure\ICustomJavaScriptSerializer.cs" />
+    <Compile Include="Helpers\CustomWrapper\Infrastructure\IUrlBuilderRP.cs" />
+    <Compile Include="Helpers\CustomWrapper\Infrastructure\JavaScriptGenerator.cs" />
+    <Compile Include="Helpers\CustomWrapper\Infrastructure\JsonObjectBase.cs" />
+    <Compile Include="Helpers\CustomWrapper\Infrastructure\StringExtensionsRP.cs" />
+    <Compile Include="Helpers\CustomWrapper\Infrastructure\TypeExtensionsRP.cs" />
+    <Compile Include="Helpers\CustomWrapper\RefahKendoGrid\GridRP.cs" />
+    <Compile Include="Helpers\CustomWrapper\RefahKendoGrid\HtmlHelperExtension\GetGenericGridRP.cs" />
+    <Compile Include="Helpers\CustomWrapper\RefahKendoGrid\HtmlHelperExtension\HtmlExtension.cs" />
+    <Compile Include="Helpers\CustomWrapper\RefahKendoGrid\Infrastructure\IGridCustomGroupingWrapperRP.cs" />
+    <Compile Include="Helpers\CustomWrapper\RefahKendoGrid\Resources\Filter\Grid_Filterable_Messages.Designer.cs" />
+    <Compile Include="Helpers\CustomWrapper\RefahKendoGrid\Resources\Filter\Grid_Filterable_Operators.Designer.cs" />
+    <Compile Include="Helpers\CustomWrapper\RefahKendoGrid\Settings\ColumnConfig\Column.cs" />
+    <Compile Include="Helpers\CustomWrapper\RefahKendoGrid\Settings\ColumnConfig\ColumnCommand.cs" />
+    <Compile Include="Helpers\CustomWrapper\RefahKendoGrid\Settings\ColumnConfig\ColumnWith.cs" />
+    <Compile Include="Helpers\CustomWrapper\RefahKendoGrid\Settings\ColumnConfig\GCommandRP.cs" />
+    <Compile Include="Helpers\CustomWrapper\RefahKendoGrid\Settings\ColumnConfig\GridColumnRP.cs" />
+    <Compile Include="Helpers\CustomWrapper\RefahKendoGrid\Settings\DsConfig.cs" />
+    <Compile Include="Helpers\CustomWrapper\RefahKendoGrid\Settings\Features\ClientDependentFeature.cs" />
+    <Compile Include="Helpers\CustomWrapper\RefahKendoGrid\Settings\Features\ClientEvent.cs" />
+    <Compile Include="Helpers\CustomWrapper\RefahKendoGrid\Settings\Features\ClientEventOnEdit.cs" />
+    <Compile Include="Helpers\CustomWrapper\RefahKendoGrid\Settings\Features\ClientEventOnEditOperation.cs" />
+    <Compile Include="Helpers\CustomWrapper\RefahKendoGrid\Settings\Features\ColumnMenu.cs" />
+    <Compile Include="Helpers\CustomWrapper\RefahKendoGrid\Settings\Features\ColumnMenuMessagesRP.cs" />
+    <Compile Include="Helpers\CustomWrapper\RefahKendoGrid\Settings\Features\CustomActionInfo.cs" />
+    <Compile Include="Helpers\CustomWrapper\RefahKendoGrid\Settings\Features\Dimension.cs" />
+    <Compile Include="Helpers\CustomWrapper\RefahKendoGrid\Settings\Features\EditConfig.cs" />
+    <Compile Include="Helpers\CustomWrapper\RefahKendoGrid\Settings\Features\EditCustomConfig.cs" />
+    <Compile Include="Helpers\CustomWrapper\RefahKendoGrid\Settings\Features\EditMode.cs" />
+    <Compile Include="Helpers\CustomWrapper\RefahKendoGrid\Settings\Features\EditWindow.cs" />
+    <Compile Include="Helpers\CustomWrapper\RefahKendoGrid\Settings\Features\Features.cs" />
+    <Compile Include="Helpers\CustomWrapper\RefahKendoGrid\Settings\Features\FilterConfig.cs" />
+    <Compile Include="Helpers\CustomWrapper\RefahKendoGrid\Settings\Features\FilterMessage.cs" />
+    <Compile Include="Helpers\CustomWrapper\RefahKendoGrid\Settings\Features\FilterOpDate.cs" />
+    <Compile Include="Helpers\CustomWrapper\RefahKendoGrid\Settings\Features\FilterOperatorEnum.cs" />
+    <Compile Include="Helpers\CustomWrapper\RefahKendoGrid\Settings\Features\FilterOperators.cs" />
+    <Compile Include="Helpers\CustomWrapper\RefahKendoGrid\Settings\Features\FilterOpNumber.cs" />
+    <Compile Include="Helpers\CustomWrapper\RefahKendoGrid\Settings\Features\FilterOpString.cs" />
+    <Compile Include="Helpers\CustomWrapper\RefahKendoGrid\Settings\Features\GridEvents.cs" />
+    <Compile Include="Helpers\CustomWrapper\RefahKendoGrid\Settings\Features\Grouping.cs" />
+    <Compile Include="Helpers\CustomWrapper\RefahKendoGrid\Settings\Features\GroupingMessages.cs" />
+    <Compile Include="Helpers\CustomWrapper\RefahKendoGrid\Settings\Features\HtmlTemplateRP.cs" />
+    <Compile Include="Helpers\CustomWrapper\RefahKendoGrid\Settings\Features\IClientEventBehavior.cs" />
+    <Compile Include="Helpers\CustomWrapper\RefahKendoGrid\Settings\Features\Pageability.cs" />
+    <Compile Include="Helpers\CustomWrapper\RefahKendoGrid\Settings\Features\PageMessage.cs" />
+    <Compile Include="Helpers\CustomWrapper\RefahKendoGrid\Settings\Features\PageSizesConfig.cs" />
+    <Compile Include="Helpers\CustomWrapper\RefahKendoGrid\Settings\Features\PageType.cs" />
+    <Compile Include="Helpers\CustomWrapper\RefahKendoGrid\Settings\Features\Scrollable.cs" />
+    <Compile Include="Helpers\CustomWrapper\RefahKendoGrid\Settings\Features\Selectable.cs" />
+    <Compile Include="Helpers\CustomWrapper\RefahKendoGrid\Settings\Features\Sortable.cs" />
+    <Compile Include="Helpers\CustomWrapper\RefahKendoGrid\Settings\GridInfo.cs" />
+    <Compile Include="Helpers\CustomWrapper\RefahKendoGrid\ToolBar\Toolbar.cs" />
+    <Compile Include="Helpers\DatePickerHelper.cs" />
+    <Compile Include="Helpers\ElementAuthentication\UserAccessibleElement.cs" />
+    <Compile Include="Extensions\FilterRelated\IQueryableFilterApplier.cs" />
+    <Compile Include="Helpers\HtmlModifier.cs" />
+    <Compile Include="Helpers\IconButtonHelper.cs" />
+    <Compile Include="Helpers\Jq1-9-1-PersianCalendar\HtmlExtension.cs" />
+    <Compile Include="Helpers\Jq1-9-1-PersianCalendar\JQueryPersianDatePicker.cs" />
+    <Compile Include="Helpers\Lookup\LookUpHelper.cs" />
+    <Compile Include="Helpers\InputBoxHelper.cs" />
+    <Compile Include="Helpers\LabelHelper.cs" />
+    <Compile Include="Helpers\Lookup\LookupModel.cs" />
+    <Compile Include="Helpers\MVCRequestHelpers\DataSourceRequestHelper.cs" />
+    <Compile Include="Helpers\SelectionHelper.cs" />
+    <Compile Include="Helpers\SelectionViaStyle.cs" />
+    <Compile Include="Helpers\StyleKind.cs" />
+    <Compile Include="Helpers\TreeViewWrapper\EssentialHtmlBuilderBase.cs" />
+    <Compile Include="Helpers\TreeViewWrapper\EssentialItem.cs" />
+    <Compile Include="Helpers\TreeViewWrapper\EssentialItemBuilder.cs" />
+    <Compile Include="Helpers\TreeViewWrapper\EssentialItemContainerExtension.cs" />
+    <Compile Include="Helpers\TreeViewWrapper\IEssentialHtmlBuilder.cs" />
+    <Compile Include="Helpers\TreeViewWrapper\IEssentialItem.cs" />
+    <Compile Include="Helpers\TreeViewWrapper\JavaScriptInitializerCustom.cs" />
+    <Compile Include="Helpers\TreeViewWrapper\NewtonsoftScriptInitialize.cs" />
+    <Compile Include="Helpers\TreeViewWrapper\Template.cs" />
+    <Compile Include="Helpers\TreeViewWrapper\TreeViewBoxHelper.cs" />
+    <Compile Include="Helpers\TreeViewWrapper\TreeViewDataSource.cs" />
+    <Compile Include="Helpers\TreeViewWrapper\TreeViewEventBuilder.cs" />
+    <Compile Include="Helpers\TreeViewWrapper\TreeInfo.cs" />
+    <Compile Include="Helpers\TreeViewWrapper\TreeView.cs" />
+    <Compile Include="Helpers\TreeViewWrapper\TreeViewBase.cs" />
+    <Compile Include="Helpers\TreeViewWrapper\TreeViewBuilderBase.cs" />
+    <Compile Include="Helpers\TreeViewWrapper\TreeViewBuilder.cs" />
+    <Compile Include="Helpers\TreeViewWrapper\TreeViewCheckBoxSettings.cs" />
+    <Compile Include="Helpers\TreeViewWrapper\TreeViewHelper.cs" />
+    <Compile Include="Helpers\TreeViewWrapper\TreeViewHtmlBuilder.cs" />
+    <Compile Include="Helpers\TreeViewWrapper\TreeViewItem.cs" />
+    <Compile Include="Helpers\TreeViewWrapper\TreeViewItemBuilder.cs" />
+    <Compile Include="Helpers\TreeViewWrapper\TreeViewModel.cs" />
+    <Compile Include="Helpers\TreeViewWrapper\TreeViewModelBase.cs" />
+    <Compile Include="Helpers\TreeViewWrapper\TreeViewTransport.cs" />
+    <Compile Include="IFileService.cs" />
+    <Compile Include="Helpers\IViewInfo.cs" />
+    <Compile Include="ModelBinders\DataSourceRequestModelBinder.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModel\Descriptor.cs" />
+    <Compile Include="ViewModel\IViewModelBase.cs" />
+    <Compile Include="ViewModel\ViewModelBase.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Js\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Helpers\CustomWrapper\RefahKendoGrid\Resources\JavaScripts\gridRP.js" />
+    <Resource Include="Scripts\KendoGridRp.js" />
+    <None Include="Helpers\CustomWrapper\RefahKendoGrid\HtmlTemplates\DeleteConfirmationModal.cshtml" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="css\main.css" />
+    <Content Include="css\normalize.css" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Core.Cmn, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\CoreRp.Main.Deployment\Core.Cmn.dll</HintPath>
+    </Reference>
+    <Reference Include="Core.Ef, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\CoreRp.Main.Deployment\Core.Ef.dll</HintPath>
+    </Reference>
+    <Reference Include="Core.Model, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\CoreRp.Main.Deployment\Core.Model.dll</HintPath>
+    </Reference>
+    <Reference Include="EmbeddedResourceVirtualPathProvider, Version=1.0.5004.22380, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Moein\packages\EmbeddedResourceVirtualPathProvider.1.2.19\lib\net40\EmbeddedResourceVirtualPathProvider.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Kendo.Mvc, Version=2013.1.514.340, Culture=neutral, PublicKeyToken=121fae78165ba3d4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\CoreRp.Main.Deployment\Kendo.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Moein\packages\Newtonsoft.Json.5.0.8\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Net.Http.Formatting, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.AspNet.WebApi.Client.4.0.30506.0\lib\net40\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Helpers, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\..\packages\Microsoft.AspNet.WebPages.2.0.30506.0\lib\net40\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.AspNet.WebApi.Core.4.0.30506.0\lib\net40\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.AspNet.WebApi.WebHost.4.0.30506.0\lib\net40\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Web.Optimization, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\CoreRp.Main.Deployment\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\..\packages\Microsoft.AspNet.Razor.2.0.30506.0\lib\net40\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\..\packages\Microsoft.AspNet.WebPages.2.0.30506.0\lib\net40\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\..\packages\Microsoft.AspNet.WebPages.2.0.30506.0\lib\net40\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\..\packages\Microsoft.AspNet.WebPages.2.0.30506.0\lib\net40\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.XML" />
+    <Reference Include="System.Xml.Serialization" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Core.Resources\Core.Resources.csproj">
+      <Project>{74F7175D-10A9-4F0C-BD3E-F5AB9CBC0B4E}</Project>
+      <Name>Core.Resources</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Core.Service\Core.Service.csproj">
+      <Project>{6E3E1DB8-77C4-43BE-B638-DC7B2D71FCCA}</Project>
+      <Name>Core.Service</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Helpers\CustomWrapper\RefahKendoGrid\Resources\Filter\Grid_Filterable_Messages.resx" />
+    <EmbeddedResource Include="Helpers\CustomWrapper\RefahKendoGrid\Resources\Filter\Grid_Filterable_Operators.resx" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

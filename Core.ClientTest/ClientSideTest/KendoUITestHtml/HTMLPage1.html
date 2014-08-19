@@ -1,0 +1,236 @@
+﻿@{
+    ViewBag.Title = "صفحه اصلی";
+}
+
+@using Kendo.Mvc.UI;
+@using SampleProject.ViewModels
+<p>
+    @Html.ActionLink("لیست نقش ها", "Index", "Role")
+
+
+</p>
+
+<div class="k-rtl">
+    @(Html.Kendo().Grid<UserViewModel>()
+                .Name("grid")
+                .Columns(columns =>
+                {
+                    columns.Bound(p => p.FName).Title("نام").Width(130);
+                    columns.Bound(p => p.LName).Title("نام خانوادگی").Width(130);
+                    columns.Bound(p => p.UserName).Title("نام کاربری").Width(130);
+
+                    columns.Command(c => c.Custom("حذف").Click("openWindow")).Width(130);
+
+                    columns.Command(command =>
+                    {
+                        command.Edit().CancelText("انصراف").UpdateText("ذخیره").Text("ویرایش");
+
+
+                    }).Width(130);
+
+
+
+                })
+                .ToolBar(commands => commands.Create().Text("تعریف کاربر"))
+                .Filterable(filterable => filterable
+                                              .Extra(false)
+                                              .Messages(a => a.Info("فیلتر بر اساس")).Messages(a => a.Clear("حذف")).Messages(a => a.Filter("فیلتر"))
+
+
+                                              .Operators(operators => operators
+                                                                          .ForString(str => str.Clear()
+                                                                                               .StartsWith("شروع می شود با")
+                                                                                               .IsEqualTo("مساوی")
+                                                                                               .IsNotEqualTo("مساوی نیست با")
+
+                                                                          ))
+
+                )
+                .Selectable(selectable => selectable
+                                              .Mode(GridSelectionMode.Single)
+                                              .Type(GridSelectionType.Row)).Navigatable()
+                .Pageable(p => p.Messages(s => s.First("اولین صفحه")))
+                .Pageable(p => p.Messages(s => s.Last("آخرین صفحه")))
+                .Pageable(p => p.Messages(s => s.ItemsPerPage("تعدارد رکورد هر صفحه")))
+                .Pageable(p => p.Messages(s => s.Next("صفحه بعد")))
+                .Pageable(p => p.Messages(s => s.Previous("صفحه قبل")))
+                .Pageable(p => p.Messages(s => s.Of("از")))
+                .Pageable(p => p.Messages(s => s.Page("صفحه")))
+                .Pageable(p => p.Messages(s => s.Refresh("به روزرسانی")))
+                .Groupable()
+                .Sortable()
+                .Editable(editable => editable.Mode(GridEditMode.PopUp))
+                .Editable(settings => settings.CreateAt(GridInsertRowPosition.Bottom))
+                .Editable(settings => settings.DisplayDeleteConfirmation(false))
+                .Editable(e => e.Mode(GridEditMode.PopUp).TemplateName("UserViewModelTemplate").Window(w => w.Title("ویرایش کاربر").Draggable(false)))
+                .DataSource(dataSource => dataSource
+                .Ajax()
+                         //  .Events(a=>a.Error("aa"))
+
+            .Model(model =>
+            {
+                model.Id(p => p.Id);
+            })
+
+
+
+            .Read(read => read.Url("api/UserApi").Type(HttpVerbs.Get))
+            .Create(create => create.Url("api/UserApi").Type(HttpVerbs.Post))
+            .Update(update => update.Url("api/UserApi").Type(HttpVerbs.Put))
+            .Destroy(destroy => destroy.Url("api/UserApi").Type(HttpVerbs.Delete)))
+
+
+
+                .Events(e => e.Edit("onEdit"))
+                .Events(e => e.DataBound("onGridDataBound"))
+                )
+</div>
+
+
+
+<div id="modalWindow" style="text-align: center;">
+
+    <div style="display: block; height: 35px; text-align: center; line-height: 30px;">
+        <span>آیا از حذف اطمینان دارید؟</span>
+
+    </div>
+    <div style="display: block; text-align: center;">
+        <button id="no" class="k-button">خیر</button>
+        &nbsp;  &nbsp;  &nbsp;
+        <button id="yes" class="k-button">بله</button>
+
+    </div>
+
+</div>
+
+@section scripts
+{
+    <script src="~/Scripts/jquery-1.8.2.js"></script>
+    <script src="~/Scripts/knockout-2.2.0.js"></script>
+    <script src="~/Scripts/knockout.mapping-latest.js"></script>
+    <link href="@Url.Content("~/Content/kendo.common.min.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/kendo.rtl.min.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/kendo.default.min.css")" rel="stylesheet" type="text/css" />
+    <script src="@Url.Content("~/Scripts/kendo.all.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/kendo.web.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/kendo.aspnetmvc.min.js")" type="text/javascript"></script>
+    <script src="http://cdn.kendostatic.com/2012.3.1114/js/kendo.all.min.js"></script>
+}
+<script>
+
+    var wnd;
+    var isCreating;
+
+    $(document).ready(function () {
+
+
+        $("#grid").data().kendoGrid.options.editable.window.width = "500Px";
+
+        wnd = $("#modalWindow").kendoWindow({
+            title: "حذف",
+            modal: true,
+            visible: false,
+            resizable: false,
+            width: 400,
+        }).data("kendoWindow");
+    });
+    function openWindow(e) {
+        e.preventDefault();
+        var grid = this;
+        var row = $(e.currentTarget).closest("tr");
+        wnd.center();
+        wnd.open();
+        $("#yes").click(function () {
+            grid.removeRow(row);
+            wnd.close();
+
+        });
+
+
+
+        $("#no").click(function () {
+
+            wnd.close();
+
+        });
+
+    }
+
+
+
+
+</script>
+
+
+
+<script type="text/x-kendo-template" id="template">
+   
+</script>
+
+<script type="text/javascript">
+
+
+    function edit() {
+        var grid = $("#grid").data("kendoGrid");
+        var row = grid.select();
+        var dataItem = grid.dataItem(row);
+        var id = dataItem.Id;
+
+
+    }
+    var detailsTemplate = kendo.template($("#template").html());
+
+
+    function showDetails(e) {
+        e.preventDefault();
+
+        var dataItem = this.dataItem($(e.currentTarget).closest("tr"));
+        var wnd = $("#Details").data("kendoWindow");
+        $("#Details").css("direction", "rtl");
+
+        wnd.content(detailsTemplate(dataItem));
+        wnd.center().open();
+    }
+
+
+
+    $(".k-grid-add").on("click", function (e) {
+
+        isCreating = true;
+
+    });
+
+    function onEdit(e) {
+
+        e.container.find(".k-grid-update").css("float", "right");
+        e.container.find(".k-grid-cancel").css("float", "left");
+        $(".k-window-title").css("direction", "rtl");
+        $(".k-window-title").css("cursor", "default");
+
+        if (isCreating) {
+            e.container.kendoWindow("title", "ایجاد کاربر جدید");
+
+            isCreating = false;
+        }
+        $("#grid").data().kendoGrid.options.editable.window.width = "500px";
+
+    }
+
+    function onGridDataBound(e) {
+        if (this.dataSource.view().length == 0) {
+            $('.k-pager-info').hide();
+        } else {
+            $('.k-pager-info').show();
+        }
+    }
+
+
+    function onAdditionalData() {
+        return {
+            text: $("#kautocomplete").val()
+        };
+
+    }
+
+
+</script>

@@ -1,0 +1,27 @@
+﻿.L-textBox {
+    text-align: center;
+    background: url(Default/lookup.png) no-repeat;
+    background-position: right center;
+    padding-left: 20px;
+    width: 100px;
+    border-color: #c5c5c5;
+    color: #2e2e2e;
+    border-radius: 4px;
+}
+
+    .L-textBox:hover {
+        background: url(Default/hover-lookup.png) no-repeat;
+        background-position: right center;
+        width: 100px;
+        padding-left: 20px;
+    }
+
+.l-i-button {
+  background: url(Default/lookup.png) no-repeat;
+    background-position: right center;
+    /*  padding-left: 20px;*/
+}
+.l-i-button :hover
+{
+    /*opacity:1;*/
+}

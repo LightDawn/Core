@@ -1,0 +1,122 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core.Cmn", "Core.Cmn\Core.Cmn.csproj", "{90DE1166-279D-47DB-89BE-70EC7FD78EDD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core.Mvc", "Core.Mvc\Core.Mvc.csproj", "{A1D94026-1A00-45F5-9E6C-A4FFE687F3D3}"
+	ProjectSection(ProjectDependencies) = postProject
+		{5E1ABF1A-F15A-4BFB-97BE-19BE2C209390} = {5E1ABF1A-F15A-4BFB-97BE-19BE2C209390}
+		{90DE1166-279D-47DB-89BE-70EC7FD78EDD} = {90DE1166-279D-47DB-89BE-70EC7FD78EDD}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core.Ef", "Core.Ef\Core.Ef.csproj", "{4E94F9DF-3EFC-4800-B011-3261A3465B83}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core.Model", "Core.Model\Core.Model.csproj", "{5E1ABF1A-F15A-4BFB-97BE-19BE2C209390}"
+	ProjectSection(ProjectDependencies) = postProject
+		{90DE1166-279D-47DB-89BE-70EC7FD78EDD} = {90DE1166-279D-47DB-89BE-70EC7FD78EDD}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core.Test", "Core.Test\Core.Test.csproj", "{403C1136-AAAC-488F-A193-DD56EDC662D6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core.Report", "Core.Report\Core.Report.csproj", "{BDE17741-02D7-44AD-AE1E-41188E9E0CC8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core.Repository", "Core.Repository\Core.Repository.csproj", "{20452001-A55E-406E-BBD3-17FCAB5741D8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core.Service", "Core.Service\Core.Service.csproj", "{6E3E1DB8-77C4-43BE-B638-DC7B2D71FCCA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleProject", "SampleProject\SampleProject.csproj", "{DE2ABEE9-4668-40EF-969D-51E6159C4DD8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{776335D0-E29C-4156-9D80-709090904FB0}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core.Tests", "Core.Tests\Core.Tests.csproj", "{372EFD45-CC5B-4873-9C54-3AD25A4D9557}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core.Resources", "Core.Resources\Core.Resources.csproj", "{74F7175D-10A9-4F0C-BD3E-F5AB9CBC0B4E}"
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 12
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = http://refah-soft-01:8080/tfs/corerp
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = Core.Ef\\Core.Ef.csproj
+		SccProjectName1 = Core.Ef
+		SccLocalPath1 = Core.Ef
+		SccProjectUniqueName2 = Core.Model\\Core.Model.csproj
+		SccProjectName2 = Core.Model
+		SccLocalPath2 = Core.Model
+		SccProjectUniqueName3 = Core.Cmn\\Core.Cmn.csproj
+		SccProjectName3 = Core.Cmn
+		SccLocalPath3 = Core.Cmn
+		SccProjectUniqueName4 = Core.Mvc\\Core.Mvc.csproj
+		SccProjectName4 = Core.Mvc
+		SccLocalPath4 = Core.Mvc
+		SccProjectUniqueName5 = Core.Test\\Core.Test.csproj
+		SccProjectName5 = Core.Test
+		SccLocalPath5 = Core.Test
+		SccProjectUniqueName6 = Core.Report\\Core.Report.csproj
+		SccProjectName6 = Core.Report
+		SccLocalPath6 = Core.Report
+		SccProjectUniqueName7 = Core.Repository\\Core.Repository.csproj
+		SccProjectName7 = Core.Repository
+		SccLocalPath7 = Core.Repository
+		SccProjectUniqueName8 = Core.Service\\Core.Service.csproj
+		SccProjectName8 = Core.Service
+		SccLocalPath8 = Core.Service
+		SccProjectUniqueName9 = SampleProject\\SampleProject.csproj
+		SccProjectName9 = SampleProject
+		SccLocalPath9 = SampleProject
+		SccProjectUniqueName10 = Core.Tests\\Core.Tests.csproj
+		SccProjectName10 = Core.Tests
+		SccLocalPath10 = Core.Tests
+		SccProjectUniqueName11 = Core.Resources\\Core.Resources.csproj
+		SccProjectName11 = Core.Resources
+		SccLocalPath11 = Core.Resources
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{90DE1166-279D-47DB-89BE-70EC7FD78EDD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{90DE1166-279D-47DB-89BE-70EC7FD78EDD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{90DE1166-279D-47DB-89BE-70EC7FD78EDD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A1D94026-1A00-45F5-9E6C-A4FFE687F3D3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A1D94026-1A00-45F5-9E6C-A4FFE687F3D3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A1D94026-1A00-45F5-9E6C-A4FFE687F3D3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4E94F9DF-3EFC-4800-B011-3261A3465B83}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4E94F9DF-3EFC-4800-B011-3261A3465B83}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4E94F9DF-3EFC-4800-B011-3261A3465B83}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5E1ABF1A-F15A-4BFB-97BE-19BE2C209390}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5E1ABF1A-F15A-4BFB-97BE-19BE2C209390}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5E1ABF1A-F15A-4BFB-97BE-19BE2C209390}.Release|Any CPU.Build.0 = Release|Any CPU
+		{403C1136-AAAC-488F-A193-DD56EDC662D6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{403C1136-AAAC-488F-A193-DD56EDC662D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{403C1136-AAAC-488F-A193-DD56EDC662D6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BDE17741-02D7-44AD-AE1E-41188E9E0CC8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BDE17741-02D7-44AD-AE1E-41188E9E0CC8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BDE17741-02D7-44AD-AE1E-41188E9E0CC8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{20452001-A55E-406E-BBD3-17FCAB5741D8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{20452001-A55E-406E-BBD3-17FCAB5741D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{20452001-A55E-406E-BBD3-17FCAB5741D8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6E3E1DB8-77C4-43BE-B638-DC7B2D71FCCA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6E3E1DB8-77C4-43BE-B638-DC7B2D71FCCA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6E3E1DB8-77C4-43BE-B638-DC7B2D71FCCA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DE2ABEE9-4668-40EF-969D-51E6159C4DD8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DE2ABEE9-4668-40EF-969D-51E6159C4DD8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DE2ABEE9-4668-40EF-969D-51E6159C4DD8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{372EFD45-CC5B-4873-9C54-3AD25A4D9557}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{372EFD45-CC5B-4873-9C54-3AD25A4D9557}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{372EFD45-CC5B-4873-9C54-3AD25A4D9557}.Release|Any CPU.Build.0 = Release|Any CPU
+		{74F7175D-10A9-4F0C-BD3E-F5AB9CBC0B4E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{74F7175D-10A9-4F0C-BD3E-F5AB9CBC0B4E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{74F7175D-10A9-4F0C-BD3E-F5AB9CBC0B4E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
