@@ -61,12 +61,8 @@ namespace Core.Mvc.Helpers.Lookup
             get;
             set;
         }
-        //public Type ViewModelType
-        //{
-        //    get;
-        //    set;
-        //}
-        internal string ViewModelProperty
+       
+        public string ViewModelProperty
         {
             get;
             set;
