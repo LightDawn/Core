@@ -120,8 +120,6 @@ namespace Core.Mvc.Helpers
 
                 ViewModelProperty = viewModelPropName,
 
-              //  ViewModelType = t ,
-
                 UseMultiSelect = false,
 
                 PropertyNameForDisplay = propertyNameForDisplay,
