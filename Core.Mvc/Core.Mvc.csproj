@@ -152,7 +152,6 @@
     <Compile Include="Helpers\Lookup\LookupModel.cs" />
     <Compile Include="Helpers\MVCRequestHelpers\DataSourceRequestHelper.cs" />
     <Compile Include="Helpers\SelectionHelper.cs" />
-    <Compile Include="Helpers\SelectionViaStyle.cs" />
     <Compile Include="Helpers\StyleKind.cs" />
     <Compile Include="Helpers\TreeViewWrapper\EssentialHtmlBuilderBase.cs" />
     <Compile Include="Helpers\TreeViewWrapper\EssentialItem.cs" />
