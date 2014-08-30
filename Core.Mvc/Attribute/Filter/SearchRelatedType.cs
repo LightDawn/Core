@@ -16,7 +16,7 @@ namespace Core.Mvc.Attribute.Filter
         public bool IdReplacement { get; set; }
         public SearchRelatedTypeAttribute()
         {
-            
+
         }
     }
 }
