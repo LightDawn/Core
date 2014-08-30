@@ -271,8 +271,8 @@ namespace Core.Repository
            // context.Users.Update(users, u => new User { FirstName = "newfirstname" });
             //CreateExpression(typeof(bool), _condition);
             // context.YourEntities.Local.Any(e => e.Id == id);
-            //todo:pouyan...check in multiple user...
-            //todo:pouyan ...Comment It because it doesn`t work in many to many ..(example in RoleOrganization Accout)
+            //todo:...check in multiple user...
+            //todo: ...Comment It because it doesn`t work in many to many ..(example in RoleOrganization Accout)
             //Func<TObject, bool> func = x => t[KeyName].ToString() == t[KeyName].ToString();
             //if (ContextBase.Set<TObject>().Local.Any(func))
             //{
