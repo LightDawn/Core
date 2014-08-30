@@ -14,9 +14,7 @@ using Core.Mvc.Helpers.CustomWrapper.Infrastructure;
 
 namespace Core.Mvc.Helpers.CustomWrapper.DataSource
 {
-    /// <summary>
-    /// DataSource کلاس مبنا برای همه کلاس های 
-    /// </summary>
+   
     public abstract class DataSourceBase : JsonObjectBase
     {
         public DataSourceBase()

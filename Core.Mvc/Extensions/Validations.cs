@@ -5,11 +5,6 @@ using System.Text.RegularExpressions;
 
 namespace Core.Mvc.Extensions
 {
-    /// <summary> 						            
-    ///Created by :Tabandeh
-    ///Created on Date :1392/7/13
-    /// <remarks>Create Required validation for specified item</remarks>
-    /// </summary>
     public class Required : ValidationBase
     {
         public override Dictionary<string, string> CreateRelatedValidation()
@@ -68,11 +63,7 @@ namespace Core.Mvc.Extensions
     }
 
 
-    /// <summary> 						            
-    ///Created by :Tabandeh
-    ///Created on Date :1392/7/13
-    /// <remarks>Create Range validation for specified item</remarks>
-    /// </summary>
+  
     public class Range : ValidationBase
     {
         private int Min { get; set; }
@@ -83,10 +74,7 @@ namespace Core.Mvc.Extensions
             Min = min;
         }
 
-        /// <summary> 						            
-        ///Created by :Tabandeh
-        ///Created on Date :1392/7/13
-        /// </summary>
+      
         public override Dictionary<string, string> CreateRelatedValidation()
         {
             throw new NotImplementedException();
@@ -94,11 +82,7 @@ namespace Core.Mvc.Extensions
         }
     }
 
-    /// <summary> 						            
-    ///Created by :Tabandeh
-    ///Created on Date :1392/7/13
-    ///All custom validation are inherited from this class.
-    /// </summary>
+  
     public abstract class ValidationBase
     {
         public abstract Dictionary<string, string> CreateRelatedValidation();

@@ -11,21 +11,11 @@ using System.Web.Mvc.Html;
 
 namespace Core.Mvc.Helpers
 {
-    /// <summary> 						            
-    ///Created by :Tabandeh
-    ///Created on Date :1392/5/16
-    ///cerate lookup by providing textbox for display text and HiddenField for keeping value.
-    ///lookup have two kind(tree, grid).look up result have two kind(textbox , multiselect).
-    ///if developers need to set validation for lookup ,they can set validationRP array 
-    /// </summary>
+   
     public static class LookUpHelper
     {
         private static string _Id;
-        /// <summary> 						            
-        ///Created by :Tabandeh
-        ///Created on Date :1392/7/20
-        /// <remarks>property for return Id from  HtmlModifier.ModifyId(_Id) method.and set value to _Id</remarks>
-        /// </summary>
+      
         private static string Id
         {
             get
@@ -38,29 +28,7 @@ namespace Core.Mvc.Helpers
         private static string Title { get; set; }
 
         #region textbox for grid result
-        // /// <summary> 						            
-        /////Created by :Tabandeh
-        /////Created on Date :  1392/5/16
-        ///// <remarks>textbox for grid result</remarks>
-        ///// </summary>
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <typeparam name="TModel"> Specify ViewModel </typeparam>
-        /// <param name="helper">Represents support for rendering html controls in a view</param>
-        /// <param name="id"></param>
-        /// <param name="name"></param>
-        /// <param name="title"></param>
-        /// <param name="gridInfo">Specify grid info such as datasourceinfo , toolbar , general features and commands config</param>
-        /// <param name="propertyNameForValue"></param>
-        /// <param name="propertyNameForDisplay"></param>
-        /// <param name="propertyNameForBinding"></param>
-        /// <param name="htmlAttributes"></param>
-        /// <param name="readOnly"></param>
-        /// <param name="lookupHtmlAttributes"></param>
-        /// <param name="clientDependentFeature">Specify all the client related features of the grid are included(declared in Core.Mvc.Helpers.RefahKendoGrid.ClientDependentFeature())</param>
-        /// <param name="validationRP">Specify validation type <example>new Core.Mvc.Extensions.Required()</example></param>
-        /// <returns>MvcHtmlString.Create(container.ToString());</returns>
+       
         public static MvcHtmlString LookUpRP<TModel>(this HtmlHelper helper, string id, string name, string title, RefahKendoGrid.Settings.GridInfo gridInfo, string viewModelPropName,
             string propertyNameForValue, string propertyNameForDisplay, string propertyNameForBinding, object htmlAttributes,
             bool readOnly, Dictionary<string, object> lookupHtmlAttributes, ClientDependentFeature clientDependentFeature, params  ValidationBase[] validationRP) where TModel : IViewModelBase, new()

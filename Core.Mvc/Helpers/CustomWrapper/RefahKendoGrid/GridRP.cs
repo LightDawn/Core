@@ -24,9 +24,7 @@ using Core.Mvc.Helpers.ElementAuthentication;
 
 namespace Core.Mvc.Helpers.RefahKendoGrid
 {
-    /// <summary>
-    ///کلاسی که وظیفه تولید گرید کندو را به عهده دارد. 
-    /// </summary>
+   
     [Serializable()]
     public class GridRP<T> where T : new() 
     {
@@ -46,15 +44,8 @@ namespace Core.Mvc.Helpers.RefahKendoGrid
         private string _height;
         private bool _hasCommonAddOrEditScriptAppended;
         private AccessOperation _accessOperation;
-        /// <summary>
-        /// سازنده گرید 
-        /// </summary>
-        /// <param name="helper">متغیری که از نوع اچ تی ام ال هلپر است</param>
-        /// <param name="gridId">شناسه گرید مربوطه</param>
-        /// <param name="gridInfo">حاوی اطلاعات و ویژگیهای مربوط به گرید</param>
-        /// <param name="clientDependency">  حاوی ویژگیهای مربوط به گرید که در سمت فایل تعریف گرید به کار می رود.</param>
-        /// <param name="Width">طول گرید</param>
-        /// <param name="Height">ارتفاع گرید</param>
+       
+        
         public GridRP(HtmlHelper helper, string gridId, GridInfo gridInfo , Type viewModelType = null , ClientDependentFeature clientDependency = null , string Width = null , string Height = null )
         {
             _modelMetaData = helper.ViewData.ModelMetadata;

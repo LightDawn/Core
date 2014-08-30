@@ -31,49 +31,61 @@ namespace Core.Mvc.Helpers.CustomWrapper.DataModel
             {
                 json["searchCustomTypes"] = GetColumnWithClrRelatedTypeForSearch();
             }
-           
-           
-
         }
 
-        private  Dictionary<string ,object> GetColumnWithClrRelatedTypeForSearch()
+        private Dictionary<string, object> GetColumnWithClrRelatedTypeForSearch()
         {
             PropertyInfo[] propInfos = GridViewModelType.GetProperties();
-            var fieldTypeInfos = new Dictionary<string ,object>();
+            var fieldTypeInfos = new Dictionary<string, object>();
             foreach (var item in propInfos)
             {
-                     var customAttrs = item.GetCustomAttributes(true);
-                     ModelFieldTypeInfo fieldTypeInfo = null;
-                    
-                     foreach (var attrItem in customAttrs)
-                     {
-                         if (attrItem is SearchRelatedTypeAttribute)
-                         {
-                             InitialiseFieldTypeInfo(ref fieldTypeInfo);
-                             var searchRelatedAttr  = (attrItem as SearchRelatedTypeAttribute);
-                             fieldTypeInfo.CustomType = searchRelatedAttr.CustomType;
-                             fieldTypeInfo.ModelPropName = searchRelatedAttr.MainPropertyNameOfModel;
-                             fieldTypeInfo.TrueEquivalent = searchRelatedAttr.TrueEquivalent;
-                             fieldTypeInfo.FalseEquivalent = searchRelatedAttr.FalseEquivalent;
-                             fieldTypeInfo.NavigationProperty = searchRelatedAttr.NavigationProperty;
-                             //fieldTypeInfo.IdReplacement = searchRelatedAttr.IdReplacement;
-                         }
+                var customAttrs = item.GetCustomAttributes(true);
+                ModelFieldTypeInfo fieldTypeInfo = null;
 
-                         else if (attrItem is SearchRelatedEnumInfoAttribute)
-                         {
-                             InitialiseFieldTypeInfo(ref fieldTypeInfo);
-                             var SearchRelatedEnumAttr = (attrItem as SearchRelatedEnumInfoAttribute);
-                             fieldTypeInfo.CustomType = SearchRelatedEnumAttr.CustomType;
-                             fieldTypeInfo.ModelPropName = SearchRelatedEnumAttr.MainPropertyNameOfModel;
-                             var enumType = SearchRelatedEnumAttr.EnumType;
-                             fieldTypeInfo.EnumKeyValue = enumType.GetEnumKeyValuePairEquivalents();
-                         }
-                         
-                     }
-                     if (fieldTypeInfo != null)
-                     {
-                         fieldTypeInfos.Add(item.Name, fieldTypeInfo.ToJson());
-                     }
+                foreach (var attrItem in customAttrs)
+                {
+                    if (attrItem is SearchRelatedTypeAttribute)
+                    {
+                        InitialiseFieldTypeInfo(ref fieldTypeInfo);
+                        var searchRelatedAttr = (attrItem as SearchRelatedTypeAttribute);
+                        fieldTypeInfo.CustomType = searchRelatedAttr.CustomType;
+                        fieldTypeInfo.ModelPropName = searchRelatedAttr.MainPropertyNameOfModel;
+                        fieldTypeInfo.TrueEquivalent = searchRelatedAttr.TrueEquivalent;
+                        fieldTypeInfo.FalseEquivalent = searchRelatedAttr.FalseEquivalent;
+                        fieldTypeInfo.NavigationProperty = searchRelatedAttr.NavigationProperty;
+                        //fieldTypeInfo.IdReplacement = searchRelatedAttr.IdReplacement;
+                    }
+
+                    else if (attrItem is SearchRelatedEnumInfoAttribute)
+                    {
+                        InitialiseFieldTypeInfo(ref fieldTypeInfo);
+                        var SearchRelatedEnumAttr = (attrItem as SearchRelatedEnumInfoAttribute);
+                        fieldTypeInfo.CustomType = SearchRelatedEnumAttr.CustomType;
+                        fieldTypeInfo.ModelPropName = SearchRelatedEnumAttr.MainPropertyNameOfModel;
+                        var enumType = SearchRelatedEnumAttr.EnumType;
+                        fieldTypeInfo.EnumKeyValue = enumType.GetEnumKeyValuePairEquivalents();
+                    }
+                    else if (attrItem is SearchRelatedUponLoadByLookupAttribute)
+                    {
+                        InitialiseFieldTypeInfo(ref fieldTypeInfo);
+                        var SearchRelatedLookpAttr = (attrItem as SearchRelatedUponLoadByLookupAttribute);
+                        fieldTypeInfo.CustomType = "Lookup";
+                        var lookupDic = new Dictionary<string, string>();
+                        lookupDic.Add("Id", SearchRelatedLookpAttr.Id);
+                        lookupDic.Add("PropertyNameForBinding", SearchRelatedLookpAttr.PropertyNameForBinding);
+                        lookupDic.Add("PropertyNameForDisplay", SearchRelatedLookpAttr.PropertyNameForDisplay);
+                        lookupDic.Add("PropertyNameForValue", SearchRelatedLookpAttr.PropertyNameForValue);
+                        lookupDic.Add("Title", SearchRelatedLookpAttr.Title);
+                        lookupDic.Add("ViewModel", SearchRelatedLookpAttr.ViewModel);
+                        lookupDic.Add("ViewModelPropName", SearchRelatedLookpAttr.ViewModelPropName);
+                        fieldTypeInfo.LookupKeyValue = lookupDic;
+                    }
+
+                }
+                if (fieldTypeInfo != null)
+                {
+                    fieldTypeInfos.Add(item.Name, fieldTypeInfo.ToJson());
+                }
             }
 
             SetExcludingFields(fieldTypeInfos);
@@ -83,14 +95,14 @@ namespace Core.Mvc.Helpers.CustomWrapper.DataModel
         private void SetExcludingFields(Dictionary<string, object> fieldTypeInfos)
         {
             var viewModelNonAttrs = GridViewModelType.GetCustomAttributes(false);//.FirstOrDefault(attr => attr.AttributeType.Name == "SearchExcludingFieldsAttribute");
-            foreach(var attrItem in viewModelNonAttrs)
+            foreach (var attrItem in viewModelNonAttrs)
             {
                 if (attrItem is SearchExcludingFieldsAttribute)
                 {
                     var attr = (attrItem as SearchExcludingFieldsAttribute);
                     fieldTypeInfos.Add("excludingFields", attr.FieldsToExcludeFromSearchable);
                 }
-            } 
+            }
         }
 
         private void InitialiseFieldTypeInfo(ref ModelFieldTypeInfo fieldTypeInfo)
