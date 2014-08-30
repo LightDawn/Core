@@ -19,7 +19,9 @@ namespace Core.Mvc.Attribute.Filter
         public string TrueEquivalent { get; set; }
         public bool IdReplacement { get; set; }
         public string NavigationProperty { get; set; }
-        public Dictionary<int,  string> EnumKeyValue { get; set; }
+        public Dictionary<int, string> EnumKeyValue { get; set; }
+
+        public Dictionary<string, string> LookupKeyValue { get; set; }
 
         protected override void Serialize(IDictionary<string, object> json)
         {
@@ -44,9 +46,12 @@ namespace Core.Mvc.Attribute.Filter
                 json["trueEqui"] = TrueEquivalent;
             }
 
-            if (EnumKeyValue != null && EnumKeyValue.Count > 0)
+            if (EnumKeyValue != null)
             {
-                json["enumDic"] = EnumKeyValue;
+                if (EnumKeyValue.Count > 0)
+                {
+                    json["enumDic"] = EnumKeyValue;
+                }
             }
 
             if (IdReplacement)
@@ -57,6 +62,17 @@ namespace Core.Mvc.Attribute.Filter
             if (!string.IsNullOrEmpty(NavigationProperty))
             {
                 json["navProp"] = NavigationProperty;
+            }
+
+            //LookupKeyValue
+
+            if (LookupKeyValue != null)
+            {
+                if (LookupKeyValue.Count > 0)
+                {
+                    json["lookupDic"] = LookupKeyValue;
+                }
+
             }
 
         }
