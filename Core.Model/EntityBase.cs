@@ -1,5 +1,4 @@
 ﻿
-///cheginy 1392/04/24
 
 using System.ComponentModel.DataAnnotations.Schema;
 
