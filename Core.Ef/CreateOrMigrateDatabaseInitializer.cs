@@ -57,7 +57,7 @@ namespace Core.Ef
                 }
 
 
-                //todo:pouyan comment it because i want to create database form our migration...
+              
                 //context.Database.Create();
                 //Seed(context);
                 //context.SaveChanges();
@@ -86,7 +86,7 @@ namespace Core.Ef
                 }
 
             }
-            //todo:pouyan  how show error...
+         
             catch (Exception ex)
             {
                 throw new Exception(ex.Message);
@@ -132,7 +132,7 @@ namespace Core.Ef
         }
 
        
-        //todo:pouyan comment it becasuse it dosen`t work after create custom dbset(92/06/02)
+       
         //void IDatabaseInitializer<TContext>.InitializeDatabase(TContext context)
         //{
 
