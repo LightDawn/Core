@@ -67,7 +67,7 @@ namespace Core.Cmn.Extensions
             var sw = new StringWriter();
             xs.Serialize(sw, viewElementComplexTypeObj);
             var serializedString = sw.ToString();
-            using (var db = new SqlConnection(@"Data Source=REFAH-TD-24\SQL2012ENT;Initial Catalog=RequestSystem;User Id=sa; Password=123456"))
+            using (var db = new SqlConnection(@"Data Source=.\SQL2012ENT;Initial Catalog=DB1;User Id=sa; Password=123456"))
             {
                 db.Open();
                 try
