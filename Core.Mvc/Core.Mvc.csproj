@@ -212,10 +212,6 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\CoreRp.Main.Deployment\Core.Model.dll</HintPath>
     </Reference>
-    <Reference Include="EmbeddedResourceVirtualPathProvider, Version=1.0.5004.22380, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\Moein\packages\EmbeddedResourceVirtualPathProvider.1.2.19\lib\net40\EmbeddedResourceVirtualPathProvider.dll</HintPath>
-    </Reference>
     <Reference Include="EntityFramework, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
